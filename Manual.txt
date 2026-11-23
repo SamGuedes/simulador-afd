@@ -1,0 +1,29 @@
+SIMULADOR DE AFD
+
+Como executar no Windows
+1. Com o Python 3 e o Tkinter instalados, extraia o ZIP e abra a pasta.
+2. Digite cmd na barra de endereço da pasta e pressione Enter.
+3. No terminal, digite python simulador.py e pressione Enter.
+4. Na janela do simulador, digite 101 no campo Sentença. Clique em
+   Próximo passo para ler um símbolo por vez ou em Executar até o fim
+   para ver o resultado e o caminho completo.
+
+Arquivos do projeto
+simulador.py — programa que abre a janela e simula o autômato.
+exemplo.json — define os estados, o alfabeto, o estado inicial, os
+               estados finais e as transições. É carregado ao iniciar.
+Manual.txt   — instruções de uso e testes.
+
+Para usar outro autômato, edite uma cópia de exemplo.json e selecione
+essa cópia pelo botão Abrir arquivo JSON. Digite a sentença na janela.
+
+Testes com exemplo.json
+O exemplo aceita entradas binárias com quantidade par de símbolos 1.
+
+Entrada       Resultado    Caminho percorrido
+101           Aceita       par → impar → impar → par
+10            Rejeitada    par → impar → impar
+Campo vazio   Aceita       Permanece em par (zero símbolos 1).
+
+Para repetir o último teste, deixe o campo em branco e clique em
+Executar até o fim.
