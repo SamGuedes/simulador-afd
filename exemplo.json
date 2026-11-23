@@ -1,0 +1,10 @@
+{
+  "estados": ["par", "impar"],
+  "alfabeto": ["0", "1"],
+  "inicial": "par",
+  "finais": ["par"],
+  "transicoes": {
+    "par":   {"0": "par",   "1": "impar"},
+    "impar": {"0": "impar", "1": "par"}
+  }
+}
