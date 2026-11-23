@@ -1,29 +1,43 @@
 SIMULADOR DE AFD
 
 Como executar no Windows
-1. Com o Python 3 e o Tkinter instalados, extraia o ZIP e abra a pasta.
-2. Digite cmd na barra de endereço da pasta e pressione Enter.
-3. No terminal, digite python simulador.py e pressione Enter.
-4. Na janela do simulador, digite 101 no campo Sentença. Clique em
-   Próximo passo para ler um símbolo por vez ou em Executar até o fim
-   para ver o resultado e o caminho completo.
+1. Instale o Python 3 com Tkinter.
+2. No GitHub, use Code > Download ZIP e extraia a pasta.
+3. Dentro da pasta, digite cmd na barra de endereço e pressione Enter.
+4. Execute: python simulador.py
+5. Digite aba no campo Sentença. Clique em Próximo passo para ler
+   uma letra por vez, ou em Executar até o fim para obter o resultado.
 
 Arquivos do projeto
-simulador.py — programa que abre a janela e simula o autômato.
-exemplo.json — define os estados, o alfabeto, o estado inicial, os
-               estados finais e as transições. É carregado ao iniciar.
-Manual.txt   — instruções de uso e testes.
+simulador.py — programa com interface gráfica que simula o AFD.
+exemplo.json — estados, alfabeto, inicial, finais e transições.
+Manual.txt — instruções de uso e testes.
 
-Para usar outro autômato, edite uma cópia de exemplo.json e selecione
-essa cópia pelo botão Abrir arquivo JSON. Digite a sentença na janela.
+Regra do exemplo
+Usa somente as letras minúsculas a e b. Aceita entradas que terminam em a.
+Estado inicial: nao_termina_em_a.
+Estado final: termina_em_a.
+Ao ler a, vai para termina_em_a. Ao ler b, vai para nao_termina_em_a.
+A aceitação é verificada somente depois de ler a entrada inteira.
 
 Testes com exemplo.json
-O exemplo aceita entradas binárias com quantidade par de símbolos 1.
+Entrada       Resultado    Motivo
+aba           Aceita       Termina em a.
+ba            Aceita       Termina em a.
+a             Aceita       Termina em a.
+ab            Rejeitada    Termina em b.
+bb            Rejeitada    Termina em b.
+Campo vazio   Rejeitada    O estado inicial não é final.
+abc           Rejeitada    A letra c não pertence ao alfabeto.
 
-Entrada       Resultado    Caminho percorrido
-101           Aceita       par → impar → impar → par
-10            Rejeitada    par → impar → impar
-Campo vazio   Aceita       Permanece em par (zero símbolos 1).
+Passos para aba
+Início: nao_termina_em_a
+Lê a: nao_termina_em_a -> termina_em_a
+Lê b: termina_em_a -> nao_termina_em_a
+Lê a: nao_termina_em_a -> termina_em_a
+Fim: Aceita.
 
-Para repetir o último teste, deixe o campo em branco e clique em
-Executar até o fim.
+Para testar a sentença vazia, deixe o campo vazio e execute até o fim.
+Alterar a sentença ou clicar em Reiniciar começa a simulação novamente.
+Para usar outra regra, edite uma cópia do JSON e abra pelo botão
+Abrir arquivo JSON. O programa valida o arquivo antes de usá-lo.
